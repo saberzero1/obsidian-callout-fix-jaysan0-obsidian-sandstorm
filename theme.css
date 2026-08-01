@@ -2089,7 +2089,7 @@ body {
   --callout-tip: var(--color-cyan-rgb);
   --callout-todo: var(--color-blue-rgb);
   --callout-warning: var(--color-orange-rgb);
-  --callout-quote: 158, 158, 158;
+  --callout-quote: rgb(158, 158, 158);
   /* Canvas */
   --canvas-background: var(--background-primary);
   --canvas-card-label-color: var(--text-faint);
@@ -9908,10 +9908,10 @@ kbd {
 @supports (color: color-mix(in srgb, white 50%, black)) {
   .callout {
     --bases-table-header-background: transparent;
-    --bases-table-header-background-hover: rgba(var(--callout-color), 0.1);
-    --bases-embed-border-color: color-mix(in srgb, rgb(var(--callout-color)) 25%, var(--background-primary) 50%);
-    --bases-table-border-color: color-mix(in srgb, rgb(var(--callout-color)) 25%, var(--background-primary) 50%);
-    --table-border-color: color-mix(in srgb, rgb(var(--callout-color)) 25%, var(--background-primary) 50%);
+    --bases-table-header-background-hover: color-mix(in srgb, var(--callout-color) 10%, transparent);
+    --bases-embed-border-color: color-mix(in srgb, var(--callout-color) 25%, var(--background-primary) 50%);
+    --bases-table-border-color: color-mix(in srgb, var(--callout-color) 25%, var(--background-primary) 50%);
+    --table-border-color: color-mix(in srgb, var(--callout-color) 25%, var(--background-primary) 50%);
   }
 }
 .callout[data-callout="abstract"],
@@ -9982,12 +9982,12 @@ kbd {
 .callout {
   overflow: hidden;
   border-style: solid;
-  border-color: rgba(var(--callout-color), var(--callout-border-opacity));
+  border-color: color-mix(in srgb, var(--callout-color) calc(var(--callout-border-opacity) * 100%), transparent);
   border-width: var(--callout-border-width);
   border-radius: var(--callout-radius);
   margin: 1em 0;
   mix-blend-mode: var(--callout-blend-mode);
-  background-color: rgba(var(--callout-color), 0.1);
+  background-color: color-mix(in srgb, var(--callout-color) 10%, transparent);
   padding: var(--callout-padding);
 }
 .callout.is-collapsible .callout-title {
@@ -9998,7 +9998,7 @@ kbd {
   display: flex;
   gap: var(--size-4-1);
   font-size: var(--callout-title-size);
-  color: rgb(var(--callout-color));
+  color: var(--callout-color);
   line-height: var(--line-height-tight);
   align-items: flex-start;
 }
@@ -10016,7 +10016,7 @@ kbd {
   align-items: center;
 }
 .callout-icon .svg-icon {
-  color: rgb(var(--callout-color));
+  color: var(--callout-color);
 }
 .callout-icon::after {
   content: "\200B";
